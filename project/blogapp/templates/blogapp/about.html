@@ -1,0 +1,261 @@
+{% extends 'blogapp/starter.html' %}
+
+{% block css %}
+<style>
+    body {
+        width: 100%;
+        padding: 0;
+    }
+
+    @media only screen and (max-width : 400px) {
+
+        /* Styles */
+        #NW {
+            width: 45%;
+        }
+
+        #NE {
+            width: 45%;
+        }
+
+        #SE {
+            width: 45%;
+        }
+
+        #SW {
+            width: 45%;
+        }
+    }
+
+    .box-le-animation {
+        padding: 0;
+        width: 100%;
+        margin: auto;
+        height: 80%;
+        display: flex;
+    }
+
+    #NW {
+        background-size: 100% 100%;
+        width: 50%;
+        background-image: url("/static/blogapp/create.jpg");
+        height: 300px;
+        animation-name: one;
+        font-size: 0vw;
+        animation-duration: 1.5s;
+        animation-delay: 0.3s;
+        animation-iteration-count: infinite;
+        height: 290px;
+
+    }
+
+    #NE {
+        width: 50%;
+        background-image: url("/static/blogapp/pic22.jpg");
+        float: left;
+        background-size: 100% 100%;
+        font-size: 0vw;
+        height: 300px;
+        animation-name: one;
+        animation-duration: 1.5s;
+        animation-delay: 0.3s;
+        animation-iteration-count: infinite;
+        height: 290px;
+    }
+
+    #SE {
+        font-size: 0vw;
+        width: 50%;
+        float: left;
+        background-image: url("/static/blogapp/eff.jpg");
+        height: 300px;
+        animation-name: one;
+        animation-duration: 1.5s;
+        animation-delay: 0.3s;
+        animation-iteration-count: infinite;
+        background-size: 100% 100%;
+        height: 290px;
+    }
+
+    #SW {
+        width: 50%;
+        font-size: 0vw;
+        float: left;
+        height: 290px;
+        animation-name: one;
+        background-image: url("/static/blogapp/pic4.jpg");
+        background-size: 100% 100%;
+        animation-duration: 1.5s;
+        animation-delay: 0.3s;
+        animation-iteration-count: infinite;
+    }
+
+    #SW:hover {
+        width: 100%;
+
+        font-size: 2.2vw;
+        border: 10px solid rgb(0, 0, 0);
+        border-radius: 2%;
+    }
+
+    #SE:hover {
+        font-size: 2.2vw;
+
+        border: 10px solid rgb(0, 0, 0);
+        border-radius: 2%;
+        width: 100%;
+    }
+
+    #NW:hover {
+        border-radius: 2%;
+        border: 10px solid rgb(0, 0, 0);
+        font-size: 2.2vw;
+        width: 100%;
+    }
+
+    #NE:hover {
+        border: 10px solid rgb(0, 0, 0);
+        border-radius: 2%;
+        font-size: 2.2vw;
+        width: 100%;
+    }
+
+    .content-box {
+        position: relative;
+        background-color: rgb(50, 230, 230);
+        width: max-content;
+        margin: auto;
+
+    }
+
+    .outer-box {
+        width: 98%;
+        padding: 2%;
+    }
+
+    .creators {
+        width: 95vw;
+        margin: auto;
+        display: flex;
+    }
+
+    h1 {
+        color: black;
+        font-weight: 900;
+        background-color: rgb(52, 252, 255);
+        width: max-content;
+        margin: auto;
+        animation: cre 1s 0.2s infinite right ;
+    }
+
+    
+    .creator {
+        width: 40vw;
+        height: 20vh;
+        margin: 2% 2% 2% 2%;
+        float: left;
+        color: black;
+        font-weight: 700;
+        font-size: 2.2vw;
+        background-color: rgb(32, 255, 247);
+    }
+
+    
+    p {
+        animation-duration: 3s;
+        animation-name: slidein;
+        animation-iteration-count: 1;
+    }
+
+    @keyframes slidein {
+        from {
+            margin-left: 100%;
+            width: 300%;
+        }
+
+        to {
+            margin-left: 0%;
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block title%} AboutSite{% endblock %}
+
+{% block body %}
+<div class="outer-box">
+    <div class="box-le-animation">
+        <div id="NW">
+            <div class="content-box">
+            </div>
+        </div>
+        <div id="NE">
+
+            <div class="content-box">
+            </div>
+        </div>
+    </div>
+    <div class="box-le-animation">
+        <div id="SE">
+            <div class="content-box">
+            </div>
+        </div>
+        <div id="SW">
+            <div class="content-box">
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h1>
+        CREATORS:
+    </h1>
+
+    <div class="creators">
+
+        <div>
+            <div class="creator">
+                <p>
+                    sudeep kumar batkya
+                    <br>
+                    <p>
+                        front-end
+                    </p>
+                </p>
+            </div>
+            <div class="creator">
+                <p>
+                    ujjawal kumar tiwari
+                    <br>
+                </p>
+                <p>
+                    designing 
+                </p>
+            </div>
+            <div class="creator">
+                <p>
+                    sumukh patidar
+                    <br>
+                </p>
+                <p>
+                    research and testing
+                </p>
+            </div>
+            <div class="creator">
+                <p>
+                    pushpraj singh pawar
+                </p>
+                <p>
+                     backend
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

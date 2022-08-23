@@ -1,0 +1,133 @@
+{% extends 'blogapp/starter.html' %}
+
+{% block css %}
+    .p1{
+        width : 90%;
+        margin:auto;
+        <!-- border:5px solid red; -->
+    }
+    .p2{
+        margin-left:10%;
+        width:28%;
+        height:50vh;
+        display:inline-block;
+        margin:auto;
+        margin-top: 3%;
+        margin-right:4%;
+        border:2px double blue;
+        border-radius:4%;
+    }
+    .p2 img{
+        width : 25%;
+        height: 25%;
+        margin:auto;
+        display:block;
+    }
+    .titlee{
+        width: max-content;
+        height:25%;
+        font-size : 1.7rem;
+        margin:auto;
+    }
+    .description{
+        margin:auto;
+        width: 90%;
+        height:25%;
+        font-size : 1.4rem;
+    }
+    .note{
+        display:block;
+        width:max-content;
+        height:max-content;
+        font-size:1.5rem;
+        margin:auto;
+    }
+    
+    <!--  -->
+    @media only screen and (max-width: 1500px) {
+        .p2{
+            width : 50%;
+            height:max-content;
+        }
+        .p2 img{
+            width : 20%;
+        height: 20%;
+        margin:auto;
+        display:block;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        .p2{
+            border:2px solid pink;
+            width : 100%;
+            height:max-content;
+        }
+        .titlee{
+            width: max-content;
+            font-size : 1.2rem;
+            margin:auto;
+        }
+        .description{
+            text-allign:center;
+            width: 100%;
+            height:25%;
+            font-size : 1rem;
+        }
+        .note{
+            display:block;
+            width:max-content;
+            height:max-content;
+            margin:auto;
+        }
+    }
+{% block title%} HOME {% endblock %}
+{% endblock %}
+{% block body %}
+<br>
+<div class="message">
+    <div class="mm">
+        {%if messages%}
+        {% for message in messages %}
+        {% if forloop.first %}
+        <div class="alert alert-{{ message.tags}} alert-dismissible fade show mm" role="alert"><strong>
+                {{ message }}
+                {% endif %}
+                {% endfor %}
+            </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        {%endif%}
+    </div>
+</div>
+</div>
+<div class="p1">
+    
+    {% for i in blogs %}
+        <div class="p2">
+            <div class="titlee">
+            {{i.Blogpost_title}}
+            </div>
+            <div class="description">
+                {{i.Blogpost_desc}}<italic><strong><br>{{i.Blogpost_category1}}</strong></italic>
+                <br>
+            </div>
+            <div>
+               
+            </div>
+            <img src='/media/{{i.Blogpost_picture1}}' alt="not able to load">
+            <div class="note">
+            <a href="/blog/blogbeforeview/{{i.id}} ">read blog</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+{% endblock %}

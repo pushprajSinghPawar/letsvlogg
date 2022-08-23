@@ -1,0 +1,151 @@
+{% extends 'blogapp/starter.html' %}
+
+{% block css %}
+<style>
+  .knt {
+    width: 80%;
+    height: 100%;
+    /* border: 2px double black; */
+  }
+
+  .page-form{
+    /* background-color: cornsilk; */
+    width: 70vw;
+    height: 70vh;
+    /* border: 3px double black; */
+    margin: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .ssss{
+        background-color: beige;
+        color: black;
+    }
+    .ssss:hover{
+        background-color: rgb(0, 254, 98);
+    }
+  .d{
+    padding: 3%;
+    width: max-content;
+    height: 5vh;
+    margin: auto;
+    font-weight: bolder;
+    font-size: 1rem;
+  }
+</style>
+{% endblock %}
+
+{% block title%}ContactUs{% endblock %}
+
+{% block body %}
+<div class="form-contact page-form">
+  <br>
+  <br>
+  <br>
+  <form action="/blog/feed" method="post">{% csrf_token %}
+    <div>
+      <!--Section: Contact v.2-->
+      <section class="mb-4 knt">
+
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">any questions?contact us directly or leave your querry here I
+          will come back to you within
+          a matter of hours to help you.</p>
+
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-md-9 mb-md-0 mb-5">
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="text" id="name" name="name" class="form-control">
+                    <label for="name" class="">Your name</label>
+                  </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="text" id="email" name="email" class="form-control">
+                    <label for="email" class="">Your email</label>
+                  </div>
+                </div>
+                <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="number" id="number" name="phone" class="form-control">
+                    <label for="number" class="">Your number</label>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-md-12">
+
+            <div class="md-form">
+              <textarea type="text" id="message" name="querry" rows="2" class="form-control md-textarea"></textarea>
+              <label for="Query">Your Query</label>
+            </div>
+
+          </div>
+        </div>
+        <!--Grid row-->
+
+
+  <div class="text-center text-md-left">
+    <button type="submit" class="btn btn-primary sub mx-5 ssss" >Submit</button>
+  </div>
+  <div class="status"></div>
+</div>
+<!--Grid column-->
+</div>
+
+</section>
+<!--Section: Contact v.2-->
+
+</div>
+</form>
+<!--Grid column-->
+<div class="xxc">
+  <div class="location d">
+    📌A82 ,Kasturba nagar,Bhopal 462002,India
+  </div>
+  <div class="phonenumber d">
+    “☎” +91 9302958459
+  </div>
+  <div class="website d">
+    “🌐” <a href="pushpraj.art.blog.com">pushpraj.art.blog</a>
+  </div>
+  </ul>
+</div>
+<!--Grid column-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
+<!-- 
+    name=request.POST.get('name')
+    qstn=request.POST.get('querry')
+    mail=request.POST.get('email')
+    phone=request.POST.get('phone')
+   -->

@@ -1,0 +1,145 @@
+{% extends 'blogapp/starter.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+    .h1 {
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+
+    .content-le-blog {
+        position: relative;
+        width: 90%;
+        height: max-content;
+        margin: auto;
+    }
+
+    body {
+        background-color: white;
+    }
+
+    .content-le-blog {
+        background-color: #ffffff;
+    }
+
+    .blog-item {
+        width: inherit;
+        margin: auto;
+    }
+
+    .blog-item img {
+        width: 300px;
+        height: 400px;
+        margin: auto;
+    }
+
+    @media only screen and (max-width : 400px) {
+
+        /* Styles */
+        .blog-item img {
+            width: 95%;
+            height: 400px;
+            margin: auto;
+            /* border: 5px solid black; */
+        }
+
+        #blog-description {
+            font-size: 80%;
+        }
+    }
+
+    #title-blog {
+        width: inherit;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 800;
+        font-size: 30px;
+    }
+
+    #blog-description {
+        font-size: 80%;
+    }
+
+    .like img {
+        width: 2vw;
+        border: hidden;
+        height: 2vw;
+    }
+</style>
+{% endblock %}
+
+{% block title%} {% endblock %}
+
+{% block body %}
+
+<br>
+<br>
+<br>
+<br>
+<div class="box-le-blog">
+
+    <div class="content-le-blog">
+        <div class="blog-item" id="title-blog" style="font-family: 'Times New Roman', Times, serif;">
+            {{blog.Blogpost_title}}
+        </div>
+
+        <div class="blog-item" id="blog-pub-date">
+            {{blog.Blogpost_date}}
+        </div>
+
+        <div class="blog-item" id="blog-description">
+            {{blog.Blogpost_desc}}
+        </div>
+
+        <div class="blog-item" id="blog-images">
+            <img src='/media/{{blog.Blogpost_picture1}}' alt="work in progess">
+        </div>
+
+
+        <div class="blog-item" id="blog-category">
+            #{{blog.Blogpost_category1}}
+        </div>
+
+
+        <div class="blog-item" id="blog-main-blog">
+            {{blog.Blogpost_blog}}
+        </div>
+
+        <div class="blog-item" id="blog-comment">
+            {% for tag in blog.tags.all %}
+            <a href="#">#{{tag.name}} </a>
+            {% endfor %}
+        </div>
+        <!-- <div class="fb-like" data-href="http://127.0.0.1:8000/blog/blogbeforeview/2" data-width=""
+            data-layout="standard" data-action="like" data-size="large" data-share="false">
+        </div> -->
+
+        <!-- <div class="blog-item">
+            <div class="like">
+                <img src="{% static 'blogapp/likesvg.svg' %}" alt="My Happy SVG" />
+            </div>
+        </div> -->
+        <div class="blog-item" id="fb-comment">
+            <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/blogbeforeview/{{blog.id}}" data-width=""
+                data-numposts="8"></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <!-- <br>
+        <br>
+        <br>
+        <br> -->
+        <br>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+
+</div>
+{% endblock %}

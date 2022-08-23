@@ -1,0 +1,155 @@
+{% extends 'blogapp/starter.html' %}
+
+{% block css %}
+
+<style>
+    body {
+        background-color: #666666;
+    }
+
+
+    .h1 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .box-parent-for-content {
+        width: 100%;
+        display: flex;
+    }
+
+    .content {
+        background-color: #c8b4e1;
+        width: 90%;
+        margin: auto;
+        font-family: "Fira Sans", Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+
+    .it{
+        margin: 2%;
+        width: 270px;
+        height: 650px;
+        float: left;
+        border:  4px double rgb(219, 40, 40);
+    }
+
+    .it img
+    {
+        width: 240px;
+        height: 240px;
+    }
+
+    ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.it .blog-title{
+    margin: auto;
+    padding: 2%;
+    font-size: 25px;
+    width: 270px;
+    height: 180px;
+}
+.it .blog-desc{
+    margin: auto;
+    padding: 2%;
+    font-size: 25px;
+    width: 270px;
+    height: 190px;
+}
+.logo
+{
+    font-size: 40px;
+    width: max-content;
+    margin: auto;
+}
+.nav-scroll{
+    width: max-content;
+    margin: auto;
+}
+.tags{
+    font-size: medium;
+    font-weight: bolder;
+    font-style: italic;
+
+}
+</style>
+{% endblock %}
+
+{% block title%} HOME {% endblock %}
+{% block body %}
+<div class="logo">
+    Letsblog
+</div>
+<div class="box-parent-for-content">
+    <div class="content">
+        <h2>
+            {% for i in blogs %}
+            <div class="it">
+                <h1 class="blog-title">
+                    {{i.Blogpost_title}}
+                    <div class="tags">
+                        category->#{{i.Blogpost_category1}}
+                        <br>
+                        tags-> 
+                        {% for tag in i.tags.all %}
+                        #{{tag}} 
+                        {% endfor %}
+                    </div>
+                </h1>
+                <div>
+                    <img src='/media/{{i.Blogpost_picture1}}' alt="not able to load" >
+                </div>
+                <h5 class="blog-desc">
+                    {{i.Blogpost_desc}}
+                </h5>
+                <h5 class="blog-goto">
+                    <a href="/blog/blogbeforeview/{{i.id}} ">read blog</a>
+                </h5>
+                <br>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+<div>
+    <br>
+    <div class="nav-scroll">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">7</a>
+        <a href="#">next page</a>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div>
+    <div class="nav-scroll">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">7</a>
+        <a href="#">next page</a>
+    </div>
+</div>
+{% endblock %}

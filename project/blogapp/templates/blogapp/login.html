@@ -1,0 +1,85 @@
+{% extends 'blogapp/starter.html' %}
+
+{% block css %}
+<style>
+    .h1 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .lll {
+        font-size: 1.5rem;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .log {
+        width: 40vw;
+        height: 100vh;
+        /* border: 10px double rgb(0, 0, 0); */
+        margin: auto;
+    }
+
+    .sub {
+        width: 10vw;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .log {
+            width: 90vw;
+            border: hidden;
+        }
+
+        .sub {
+            width: 25vw;
+        }
+
+        .lll {
+            font-size: 2.3rem;
+            overflow: scroll;
+        }
+    }
+
+    .ssss {
+        background-color: beige;
+        color: black;
+    }
+
+    .ssss:hover {
+        background-color: rgb(0, 254, 98);
+    }
+</style>
+{% endblock %}
+
+{% block title%}Login page{% endblock %}
+
+{% block body %}
+<div class="lll">
+    <div class="log menu my-4">
+        <br>
+        <br>
+        <form action="/blog/accopen" method="post">{%csrf_token%}
+            <div class="form-group">
+                <!-- name=username -->
+                <label for="formGroupExampleInput2">yourunique name </label>
+                <input type="text" class="form-control" name="username" id="formGroupExampleInput2"
+                    placeholder="username">
+            </div>
+            <div class="form-group">
+                <!-- name=passkey -->
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                    name="passkey">
+            </div>
+            <button type="submit" class="btn btn-primary sub mx-5 ssss">Submit</button>
+        </form>
+        <!-- <button type="submit" class="btn  my-3 mx-3  ssss"><a href="#">Forgot password</a></button> -->
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'blogapp/starter.html' %}
+
+{% block css %}
+<style>
+    .h1 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .lll {
+        font-size: 1.5rem;
+        /* overflow-x: hidden; */
+        /* overflow-y: scroll; */
+    }
+
+    .log {
+        width: 40vw;
+        height: 100vh;
+        /* border: 10px double rgb(0, 0, 0); */
+        margin: auto;
+    }
+
+    .sub {
+        width: 10vw;
+    }
+
+    @media only screen and (max-width: 300px) {
+        .sub {
+            width: 100vw;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+
+        .sub {
+            width: 28vw;
+        }
+
+        .log {
+            width: 90vw;
+            border: hidden;
+        }
+
+        .lll {
+            font-size: 2.3rem;
+            overflow-y: scroll;
+        }
+    }
+
+    .ssss {
+        background-color: beige;
+        color: black;
+    }
+
+
+    .ssss:hover {
+        background-color: rgb(0, 254, 98);
+    }
+</style>
+{% endblock %}
+
+{% block title%}Sign-up page{% endblock %}
+
+{% block body %}
+{%if messages%}
+
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags}} alert-dismissible fade show mm" role="alert"><strong>
+        {% if forloop.first %}
+        {{ message }}
+        {% endif %}
+        {% endfor %}
+    </strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+{%endif%}
+</div>
+<div class="lll">
+    <div class="log menu my-4">
+        <br>
+        <br>
+
+        <form action="/blog/handle_sign_up" method="post">{%csrf_token%}
+            <div class="form-group">
+                <label for="formGroupExampleInput">First name </label>
+                <input type="text" class="form-control" name="firstname" id="formGroupExampleInput" placeholder="First name">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Last name </label>
+                <input type="text" class="form-control" name="lastname" id="formGroupExampleInput2" placeholder="Last name">
+            </div>
+
+            <div class="form-group">
+                <label for="formGroupExampleInput2">yourunique name </label>
+                <input type="text" class="form-control" name="username" id="formGroupExampleInput2" placeholder="username">
+            </div>
+
+            
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Select your role</label>
+                <select class="form-control" name="role" id="exampleFormControlSelect1">
+                    <option>reader</option>
+                    <option>blogger</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" name="mail" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="abc" class="form-control" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Hit your Password Again</label>
+                <input type="text" name="abcd" class="form-control" placeholder="Password">
+            </div>
+
+            <div class="form-group filein">
+                <label for="exampleFormControlFile1"></label>
+                <input type="file" name="propic" class="form-control-file " id="exampleFormControlFile1">
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" name="permi" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Agree to be a member</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary sub mx-5 ssss">Submit</button>
+
+        </form>
+
+        <button type="submit" class="btn my-3 mx-3 my-4  ssss"><a href="/blog/login">Already a memeber? Sign
+                in</a></button>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}
