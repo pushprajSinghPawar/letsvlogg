@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-d5qn8gd0j*xqmqop1js@7wx=dl)lr7z%*u+crgw($0sb2x6ji2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False 
 
-ALLOWED_HOSTS = ['https://letsvlogg.herokuapp.com' , '127.0.0.1' ]
+ALLOWED_HOSTS = ['https://letsvlogg.herokuapp.com']
 
 # Application definition
 
