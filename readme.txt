@@ -1,4 +1,4 @@
-'''steps to installprojecton your system'''
+'''steps to install projecton your system'''
 
 """letsblog"""
 *****************************************************************
