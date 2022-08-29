@@ -1,6 +1,6 @@
-*****************steps to installprojecton your system**********
+'''steps to installprojecton your system'''
 
-************************letsblog*********************************
+"""letsblog"""
 *****************************************************************
 ------ABOUT LETSBLOGS:>
 A blogging website built using Django framework. It is designed for publishing blogs and creating and environment so that there can be interactions between bloggers and readers.
